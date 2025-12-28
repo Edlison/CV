@@ -28,12 +28,12 @@ jobs:
 
       - name: Copy pdf to output
         run: |
-          mkdir -p output
-          cp main.pdf output/cv.pdf
+          mkdir -p docs
+          cp main.pdf docs/cv.pdf
 
       - name: Commit updated pdf
         uses: EndBug/add-and-commit@v9
         with:
-          add: "output/cv.pdf"
+          add: "docs/cv.pdf"
           message: "Update CV pdf from CI"
           default_author: github_actions
