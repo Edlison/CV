@@ -1,0 +1,208 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CV.tex
+%% <https://github.com/zachscrivena/simple-resume-cv>
+%% This is free and unencumbered software released into the
+%% public domain; see <http://unlicense.org> for details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% See "README.md" for instructions on compiling this document.
+
+\documentclass[letterpaper,MMMyyyy,nonstopmode]{simpleresumecv}
+% Class options:
+% a4paper, letterpaper, nonstopmode, draftmode
+% MMMyyyy, ddMMMyyyy, MMMMyyyy, ddMMMMyyyy, yyyyMMdd, yyyyMM, yyyy
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PREAMBLE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{fontspec}
+% \setmainfont{TeX Gyre Termes}[
+%   SmallCapsFeatures={Letters=SmallCaps}
+% ]
+
+% CV Info (to be customized).
+\newcommand{\CVAuthor}{Bolin Shen}
+\newcommand{\CVTitle}{Bolin's CV}
+\newcommand{\CVNote}{CV compiled on {\today}}
+\newcommand{\CVWebpage}{https://blshen.org}
+
+% PDF settings and properties.
+\hypersetup{
+pdftitle={\CVTitle},
+pdfauthor={\CVAuthor},
+pdfsubject={\CVWebpage},
+pdfcreator={XeLaTeX},
+pdfproducer={},
+pdfkeywords={},
+unicode=true,
+bookmarks=true,
+bookmarksopen=true,
+pdfstartview=FitH,
+pdfpagelayout=OneColumn,
+pdfpagemode=UseOutlines,
+hidelinks,
+breaklinks}
+
+% Shorthand.
+\newcommand{\Code}[1]{\mbox{\textbf{#1}}}
+\newcommand{\CodeCommand}[1]{\mbox{\textbf{\textbackslash{#1}}}}
+
+% Paper Entry.
+\newcommand{\PaperEntry}[5]{%
+  \textbf{#1}\\            % 标题（加粗）
+  #2\\                     % 作者
+  #3 (\textit{#4}), #5     % 期刊或会议 + 缩写（斜体） + 日期
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ACTUAL DOCUMENT.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%
+% TITLE BLOCK %
+%%%%%%%%%%%%%%%
+
+\Title{\CVAuthor}
+
+\begin{SubTitle}
+{1017 Academic Way, Tallahassee, FL 32304, USA}
+\par
+{blshen@fsu.edu}
+\,\SubBulletSymbol\,
++1\,(850)\,322-0439
+\,\SubBulletSymbol\,
+{\CVWebpage}
+\end{SubTitle}
+
+\begin{Body}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Research Interests %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Section
+{Research Interests}
+{Research Interests}
+{PDF:Research Interests}
+
+\Entry
+My research mainly focus on strengthening \textbf{Small Language Models (SLMs)}, especially by improving their memory mechanisms and reasoning abilities to achieve efficient yet powerful intelligence. In parallel, I investigate \textbf{Graph Neural Networks (GNNs)} with an emphasis on model extraction attacks and defenses mechanisms. Ultimately, my goal is to build secure, robust, and trustworthy machine learning systems that contribute to the broader vision of Responsible AI.
+
+%%%%%%%%%%%%%%%
+%% EDUCATION %%
+%%%%%%%%%%%%%%%
+\input{education}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% RESEARCH EXPERIENCE %%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{research_experience}
+
+
+%%%%%%%%%%%%%%%%%%
+%% PUBLICATIONS %%
+%%%%%%%%%%%%%%%%%%
+\input{publications}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% Selected Project %%
+%%%%%%%%%%%%%%%%%%%%%%
+\input{selected_projects}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% AWARDS & SCHOLARSHIPS %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{awards_scholarships}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% Student Mentored %%
+%%%%%%%%%%%%%%%%%%%%%%
+\input{student_mentored}
+
+
+
+%%%%%%%%%%%%
+%% SKILLS %%
+%%%%%%%%%%%%
+
+\Section
+{Technical Skills}
+{Technical Skills}
+{PDF:Technical Skills}
+
+\BulletItem
+Programming Language: Python, Java, C/C++, JavaScript, Lua
+\Gap
+\BulletItem
+ML Framework: PyTorch, Torch Geometric, DGL, Keras
+\Gap
+\BulletItem
+Miscellaneous: \LaTeX, Git, Vim, Tmux
+
+
+
+%%%%%%%%%%%%%%%
+%% LANGUAGES %%
+%%%%%%%%%%%%%%%
+
+\Section
+{Languages}
+{Languages}
+{PDF:Languages}
+
+\BulletItem
+Chinese: Native language.
+
+\Gap
+\BulletItem
+English: Fluent (speaking, reading, writing).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Academic Services %%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+% \Section
+% {Academic Services}
+% {Academic Services}
+% {PDF:Academic Services}
+
+% \BulletItem
+% Reviewer: ICLR 2026.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Invited Presentation %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{invited_presentation}
+
+
+
+\end{Body}
+
+%%%%%%%%%%%
+% CV NOTE %
+%%%%%%%%%%%
+
+\BigGap
+\UseNoteFont%
+\null\hfill%
+[\textit{\CVNote}]
+
+
+\end{document}
