@@ -1,4 +1,4 @@
-name: Build and Release CV
+name: Build CV
 
 on:
   push:
@@ -20,33 +20,20 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # Compile main.tex by XeLaTeX
-      - name: Compile LaTeX
+      - name: Compile LaTeX with XeLaTeX
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
           latexmk_use_xelatex: true
 
-      # move pdf to output
-      - name: Move pdf to output folder
+      - name: Copy pdf to output
         run: |
           mkdir -p output
           cp main.pdf output/cv.pdf
 
-      # Optional：upload artifact to Actions
-      - name: Upload pdf artifact
-        uses: actions/upload-artifact@v4
+      - name: Commit updated pdf
+        uses: EndBug/add-and-commit@v9
         with:
-          name: cv-pdf
-          path: output/cv.pdf
-
-      # create Release and upload pdf
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          # new tag
-          tag_name: cv-${{ github.run_number }}
-          name: "CV update ${{ github.run_number }}"
-          files: output/cv.pdf
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          add: "output/cv.pdf"
+          message: "Update CV pdf from CI"
+          default_author: github_actions
